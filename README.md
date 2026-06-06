@@ -1,5 +1,7 @@
 🕵️‍♂️ Dosya No.7 — Karanlık Şehir
 
+🎮 **[Oyunu Tarayıcıda Hemen Oyna](**https://izzetdemir1.github.io/KaranlikSehir/**)**
+
 📖 Hikaye
 
 Şehrin arka sokaklarında yağmur hiç dinmez. Nemli, izbe bir çatı katı ofisindesin. Önündeki masaya sürekli yeni dosyalar, yeni yüzler ve yeni krizler bırakılıyor... Tıpkı bitmek bilmeyen bir iskambil destesi gibi.
