@@ -1,6 +1,6 @@
 🕵️‍♂️ Dosya No.7 — Karanlık Şehir
 
-🎮 **[Oyunu Tarayıcıda Hemen Oyna](**https://izzetdemir1.github.io/KaranlikSehir/**)**
+https://izzetdemir1.github.io/KaranlikSehir/
 
 📖 Hikaye
 
