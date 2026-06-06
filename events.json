@@ -1,0 +1,260 @@
+[
+  {
+    "id": "start",
+    "text": "Gece yarısı. Limanın kenarındaki bodrum katta, nemli duvarlar arasında oturuyorsun. Masanın üzerinde yeni bir dosya: 'Kayıp Kişi — Viktor Marsh.' Yanındaki eski saatçi, Viktor'un üç gündür kayıp olduğunu söylüyor. Gözlerinde hem umut hem korku var. Şehir bu dosyayı sana getirdi — reddedebilirsin, ama vicdan bunu yapmana izin vermez.",
+    "choices": [
+      { "buttonText": "Dosyayı kabul et, vakaya gir", "requirements": {}, "successNext": "case01_scene", "failNext": "case01_scene", "statChanges": { "itibar": 1 } },
+      { "buttonText": "Adamı sorgula, detay iste", "requirements": { "psikoloji": 4 }, "successNext": "case01_interrogate", "failNext": "case01_scene", "statChanges": { "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case01_interrogate",
+    "text": "Saatçinin gözlerini okuyorsun. Sesi titriyor ama bakışları kaçmıyor — gerçeği söylüyor. Viktor Marsh, liman deposunda gizli bir koşuşturmanın içindeymiş. Adam, Viktor'un bıraktığı bir not uzatıyor: 'Kuzey deposu, Rıhtım 7.' Bu bilgi seni bir adım öne geçirdi.",
+    "choices": [
+      { "buttonText": "Rıhtım 7'ye git", "requirements": {}, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": {} },
+      { "buttonText": "Önce sokak muhbirini bul", "requirements": { "itibar": 5 }, "successNext": "case01_informant", "failNext": "case01_dock", "statChanges": { "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case01_scene",
+    "text": "Viktor Marsh'ın evi. Kapı zorlanmış, içerisi dağıtılmış. Yerde devrilmiş bir sandalye, kırık bir bardak. Masanın altında sıkışmış bir kağıt: liman güzergahı üzerinde çizilmiş bir harita. Üstünde tek bir kelime — 'KUZEY.'",
+    "choices": [
+      { "buttonText": "Kağıdı al, izi takip et", "requirements": {}, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": { "zeka": 1 } },
+      { "buttonText": "Evi daha dikkatli incele", "requirements": { "zeka": 6 }, "successNext": "case01_houseclue", "failNext": "case01_dock", "statChanges": { "zeka": 2 } }
+    ]
+  },
+  {
+    "id": "case01_houseclue",
+    "text": "Zemin tahtalarının altında küçük bir teneke kutu. İçinde birkaç fotoğraf ve elle yazılmış bir isim listesi. Seni şaşırtan bir isim: Komiser Hartmann. Viktor bu adamla bağlantılıydı — yoksa bu adam mı Viktor'u kaybettirdi? Her şeyin cevabı rıhtımda.",
+    "choices": [
+      { "buttonText": "Rıhtım 7'ye git", "requirements": {}, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": { "itibar": 1 } },
+      { "buttonText": "Hartmann'ın dosyasını araştır", "requirements": { "itibar": 6 }, "successNext": "case01_hartmann_lead", "failNext": "case01_dock", "statChanges": { "psikoloji": 1, "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case01_informant",
+    "text": "Arka sokaktaki meyhane. Muhbirin yanına oturup bir şişe bırakıyorsun. Adam konuşuyor: 'Viktor bir kaçakçılık şebekesini ifşa etmek üzereydi. Rıhtım 7'deki depo kilit altında ama her gece saat ikide bir kamyon çıkıyor.' Tam da ihtiyacın olan bilgi bu.",
+    "choices": [
+      { "buttonText": "Gece ikide depoda ol", "requirements": { "guc": 5 }, "successNext": "case01_dock", "failNext": "case01_dockfail", "statChanges": { "itibar": 2 } },
+      { "buttonText": "Önce güçlenecek bir plan yap", "requirements": {}, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": { "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case01_hartmann_lead",
+    "text": "Komiserin sicil dosyasını ele geçirdin. On yıl önce kapatılmış bir kaçakçılık davası, üstü örtülmüş bir ihbar... Hartmann bu şebekenin içinde. Ama elinde somut kanıt yok. Rıhtım 7'deki depo her şeyi açıklayabilir. Dikkatli ol — bu adam tehlikeli.",
+    "choices": [
+      { "buttonText": "Rıhtım 7'ye git, kanıt topla", "requirements": { "zeka": 6, "guc": 5 }, "successNext": "case01_dock", "failNext": "case01_dockfail", "statChanges": { "zeka": 1, "itibar": 2 } },
+      { "buttonText": "Başka bir dedektife haber ver", "requirements": { "itibar": 6 }, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": { "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case01_dockfail",
+    "text": "Karanlıkta fazla ileri gittin. Deponun bekçileri seni fark etti. Bir çiti atlıyorsun ama düşerken ayağını buruyorsun. Viktor'u bulamadın bu gece — ama en azından dışarı çıktın. Şehir hâlâ uyumuyor. Senin gibi.",
+    "choices": [
+      { "buttonText": "Yaralanmana rağmen izi sürdür", "requirements": { "guc": 6 }, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": { "guc": 1 } },
+      { "buttonText": "Geri çekil, yarın tekrar dene", "requirements": {}, "successNext": "case01_dock", "failNext": "case01_dock", "statChanges": { "psikoloji": 1 } }
+    ]
+  },
+  {
+    "id": "case01_dock",
+    "text": "Rıhtım 7. Soğuk, ıslak ahşap iskele. Dev demir kapılar arasından içeri süzülüyorsun. İçerde kasalar dolu, yabancı dil bağırtıları duyuluyor. Ve bir köşede, elleri bağlı, suratı morarmış: Viktor Marsh. Sağ. Ama zaman az — adımlar yaklaşıyor.",
+    "choices": [
+      { "buttonText": "Viktor'u sessizce kurtarmaya çalış", "requirements": { "psikoloji": 6 }, "successNext": "case01_rescue_ok", "failNext": "case01_rescue_fail", "statChanges": { "itibar": 3, "psikoloji": 1 } },
+      { "buttonText": "Gürültüyü kullan, kaos yarat", "requirements": { "guc": 6 }, "successNext": "case01_rescue_ok", "failNext": "case01_rescue_fail", "statChanges": { "guc": 1, "itibar": 2 } }
+    ]
+  },
+  {
+    "id": "case01_rescue_ok",
+    "text": "Viktor'u sürüklüyorsun. Koşuyorsunuz. Limandan uzaklaşırken arkanda deponun kapıları çarpılıyor — ama siz çoktan gölgede kayboldunuz. Viktor elini sıkıyor: 'Hartmann her şeyi biliyor. Onu durdurmak için kanıt yetmez — onu köşeye sıkıştırman gerek.' Şehrin sabah sisi içinde yeni bir tehlike kapıda.",
+    "choices": [
+      { "buttonText": "Viktor'u güvenli bir yere götür", "requirements": {}, "successNext": "case01_confront_prep", "failNext": "case01_confront_prep", "statChanges": { "itibar": 2, "psikoloji": 1 } },
+      { "buttonText": "Doğruca Hartmann'a git", "requirements": { "guc": 7, "itibar": 7 }, "successNext": "case01_confront", "failNext": "case01_confront_prep", "statChanges": { "zeka": 2, "itibar": 3 } }
+    ]
+  },
+  {
+    "id": "case01_rescue_fail",
+    "text": "Plan bozuldu. Viktor'u tutanlar seni de köşeye sıkıştırdı. Birini devirdin ama diğerleri geliyor. Kaçmak zorundasın — Viktor'u geride bırakarak. Ellerini titreyerek dışarı çıkıyorsun. Başarısız oldun. Ama hâlâ ayaktasın. Ve bu şehirde ayakta olmak, her şeyden değerlidir.",
+    "choices": [
+      { "buttonText": "Toparlan, yeni bir plan kur", "requirements": {}, "successNext": "case01_confront_prep", "failNext": "case01_confront_prep", "statChanges": { "psikoloji": 1 } },
+      { "buttonText": "Polise ihbarda bulun", "requirements": { "itibar": 5 }, "successNext": "case01_confront_prep", "failNext": "case01_confront_prep", "statChanges": { "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case01_confront_prep",
+    "text": "Komiser Hartmann'ın ofisi. Sabahın erken saatleri. Adam masasında oturuyor, seni bekliyor gibi. 'Dedektif. Bu şehirde çok uzun süredir dolanıyorsun.' Sesi sakin ama gözleri değil. Elinin altında bir dosya var — içinde senin adın geçiyor. Bu anı doğru oynamak zorundasın.",
+    "choices": [
+      { "buttonText": "Kanıtları masaya koy, onu köşeye sıkıştır", "requirements": { "zeka": 7, "itibar": 6 }, "successNext": "case01_confront", "failNext": "case01_escape", "statChanges": { "zeka": 2, "itibar": 2 } },
+      { "buttonText": "Psikolojik baskı uygula, çökmesini bekle", "requirements": { "psikoloji": 7 }, "successNext": "case01_confront", "failNext": "case01_escape", "statChanges": { "psikoloji": 2, "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case01_confront",
+    "text": "Hartmann'ın maskesi düşüyor. Fotoğraflar, isim listesi, Viktor'un ifadesi — hepsi önünde. Adam bir süre suskun kalıyor, sonra sandalyesine yaslanıyor. 'Seni durdurmaya çalıştım' diyor, neredeyse hayranlıkla. Birkaç saat sonra gözaltında. Dosya kapandı. Şehir bir nefes aldı.",
+    "choices": [
+      { "buttonText": "Yeni vakayı kabul et", "requirements": {}, "successNext": "case02_start", "failNext": "case02_start", "statChanges": { "itibar": 3, "psikoloji": 1 } },
+      { "buttonText": "Bir süre dinlen, şehri izle", "requirements": { "psikoloji": 5 }, "successNext": "rest_scene", "failNext": "case02_start", "statChanges": { "psikoloji": 2, "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case01_escape",
+    "text": "Hartmann masadan fırlıyor. Arka kapıdan çıkıyor. Kovalaştın ama kayıp — şehri çok iyi biliyor. Elinde kanıtlar var ama adam serbest. Bu sefer kazanamadın. Ama dosya hâlâ açık, iz hâlâ sıcak.",
+    "choices": [
+      { "buttonText": "Sıfırdan izi sürdür", "requirements": {}, "successNext": "case02_start", "failNext": "case02_start", "statChanges": { "zeka": 1 } },
+      { "buttonText": "Basına sızdır, kamuoyu baskısı yarat", "requirements": { "itibar": 8 }, "successNext": "case01_confront", "failNext": "case02_start", "statChanges": { "itibar": 2 } }
+    ]
+  },
+  {
+    "id": "rest_scene",
+    "text": "Çatı katındaki büronun penceresinden şehre bakıyorsun. Sigara dumanı, uzakta liman ışıkları. Bir bardak soğuk kahve. Bu şehir seni yoruyor ama bırakmıyor. Çünkü sen de onu bırakmıyorsun. Bir gün sonra masanda yeni bir zarf: 'Selin Demir — İntihar mı, Cinayet mi?'",
+    "choices": [
+      { "buttonText": "Zarfı aç", "requirements": {}, "successNext": "case02_start", "failNext": "case02_start", "statChanges": { "psikoloji": 1 } },
+      { "buttonText": "Bir gün daha bekle", "requirements": { "psikoloji": 6 }, "successNext": "case02_start", "failNext": "case02_start", "statChanges": { "psikoloji": 2, "zeka": 1 } }
+    ]
+  },
+
+  {
+    "id": "case02_start",
+    "text": "Selin Demir. 28 yaşında, muhasebeci. Dün gece şehrin en pahalı otelinin 12. katından düşmüş. Polis intihar diyor. Ailesi cinayet. Otelin güvenlik görüntüleri teknik arıza nedeniyle silinmiş. Selin'in çantasında tek bir not: 'Rakamlar yalan söylemez.' Ne araştırmak istersin?",
+    "choices": [
+      { "buttonText": "Otel personelini sorguya çek", "requirements": { "psikoloji": 5 }, "successNext": "case02_hotel", "failNext": "case02_financials", "statChanges": { "psikoloji": 1, "itibar": 1 } },
+      { "buttonText": "Selin'in mali kayıtlarını incele", "requirements": { "zeka": 6 }, "successNext": "case02_financials", "failNext": "case02_hotel", "statChanges": { "zeka": 2 } }
+    ]
+  },
+  {
+    "id": "case02_hotel",
+    "text": "Otel resepsiyonisti gözlerini kaçırıyor. Fazla hızlı konuşuyor. Baskı yapınca çatlıyor: 'O gece bir adam geldi. Özel güvenlik kartıyla girdi.' Adam tarif etmesini istedin — anlattıklarından tanıdık bir yüz çıkıyor. Hartmann'ın eski ortağı: Rauf Acar.",
+    "choices": [
+      { "buttonText": "Rauf Acar'ı bul ve köşeye sıkıştır", "requirements": { "guc": 5, "itibar": 6 }, "successNext": "case02_rauf", "failNext": "case02_financials", "statChanges": { "itibar": 2, "guc": 1 } },
+      { "buttonText": "Mali kayıtlara git, elinde kanıt olsun", "requirements": {}, "successNext": "case02_financials", "failNext": "case02_financials", "statChanges": { "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case02_financials",
+    "text": "Selin'in dosyaları şifreli ama sen sabırlısın. Rakamların arasında kayıp bir akış görüyorsun: her ay yüksek meblağlar bir holding hesabına akıyor. Holding adı: Acar ve Ortakları. Selin bu parayı fark etmiş, belgelemiş — ve birileri bunu öğrenmiş.",
+    "choices": [
+      { "buttonText": "Rauf Acar'ı köşeye sıkıştır", "requirements": { "zeka": 7, "itibar": 6 }, "successNext": "case02_rauf", "failNext": "case02_deadend", "statChanges": { "zeka": 2, "itibar": 2 } },
+      { "buttonText": "Savcılığa delil paketi hazırla", "requirements": { "itibar": 8 }, "successNext": "case02_solved", "failNext": "case02_deadend", "statChanges": { "itibar": 3, "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case02_rauf",
+    "text": "Rauf Acar'ı limanın kenarında yakaladın. Elleri titriyor. 'Ben sadece taşıdım' diyor. 'Emirleri Hartmann verdi.' Hartmann'ın adı yeniden dosyada. Bu sefer kaçamaz.",
+    "choices": [
+      { "buttonText": "Rauf'u konuştur, tam ifade al", "requirements": { "psikoloji": 7 }, "successNext": "case02_solved", "failNext": "case02_deadend", "statChanges": { "psikoloji": 2, "itibar": 2 } },
+      { "buttonText": "Rauf'u teslim et, kanıtla devam et", "requirements": {}, "successNext": "case02_solved", "failNext": "case02_solved", "statChanges": { "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case02_deadend",
+    "text": "İpuçları buharlaştı. Tanıklar susuyor. Biri her adımının önüne geçiyor. Bu şehirde bazı kapılar çok kalın — ama hiçbir kapı sonsuza dek kapalı kalmaz.",
+    "choices": [
+      { "buttonText": "Yeni bir açıdan başla", "requirements": {}, "successNext": "case02_start", "failNext": "case02_start", "statChanges": { "zeka": 1 } },
+      { "buttonText": "Selin'in ailesini ziyaret et", "requirements": { "psikoloji": 5 }, "successNext": "case02_hotel", "failNext": "case02_start", "statChanges": { "psikoloji": 1, "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case02_solved",
+    "text": "Selin Demir dosyası kapandı. Rauf Acar gözaltında. Hartmann bu sefer kaçamadı — mahkeme süreci başlıyor. Selin'in ailesi sana bakıyor, gözlerinde kelimelerle anlatılamayacak bir şey var. Şehir biraz daha temiz. Ama masanda yeni dosyalar birikmeye devam ediyor. Bu iş hiç bitmez.",
+    "choices": [
+      { "buttonText": "Bir sonraki dosyayı aç", "requirements": {}, "successNext": "case03_start", "failNext": "case03_start", "statChanges": { "itibar": 3, "psikoloji": 1, "zeka": 1 } },
+      { "buttonText": "Bugünlük yeter — şehre çık", "requirements": { "psikoloji": 6 }, "successNext": "rest_scene2", "failNext": "case03_start", "statChanges": { "psikoloji": 2 } }
+    ]
+  },
+  {
+    "id": "rest_scene2",
+    "text": "Eski bir barda oturuyorsun. Barmaid sana bakmadan bardağı doluyor. Barın köşesinde bir müzisyen blues çalıyor — yanlış notlar ama doğru duygu. Bir sigara, bir içki. Sonra cebindeki telefon titriyor. Mesaj kısa: 'Liman yangını. Kayıp çocuklar. Acil.' Dinlenme bitti.",
+    "choices": [
+      { "buttonText": "Hemen gidiyorsun", "requirements": {}, "successNext": "case03_start", "failNext": "case03_start", "statChanges": { "guc": 1 } },
+      { "buttonText": "İçkiyi bitir, sonra git", "requirements": { "psikoloji": 5 }, "successNext": "case03_start", "failNext": "case03_start", "statChanges": { "psikoloji": 1, "zeka": 1 } }
+    ]
+  },
+
+  {
+    "id": "case03_start",
+    "text": "Üçüncü Vaka: Kayıp Çocuklar. Liman bölgesinde bir yangın. İtfaiye söndürdü ama içeride iki çocuğun kaldığı öne sürülüyor. Aileler bekliyor. Polis 'henüz kayıp bildirimi yok' diyor. Yıkıntının içinden sesler geldiği iddia ediliyor. Saatler geçiyor.",
+    "choices": [
+      { "buttonText": "Yıkıntıya gir, arama yap", "requirements": { "guc": 6 }, "successNext": "case03_inside", "failNext": "case03_witness", "statChanges": { "guc": 2 } },
+      { "buttonText": "Görgü tanıklarını sorgula", "requirements": { "psikoloji": 5 }, "successNext": "case03_witness", "failNext": "case03_inside", "statChanges": { "psikoloji": 1, "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case03_inside",
+    "text": "Duman hâlâ tütüyor. Kirişler çatırdıyor. Duvarlarda yanık izleri — ama bu yangın kazayla değil, planlı görünüyor. Köşede küçük bir ayakkabı. Ve ıslak toprakta ayak izi. İki çocuk, farklı yönlere kaçmış. Hangisinin izini takip edeceksin?",
+    "choices": [
+      { "buttonText": "Küçük ayak izini takip et", "requirements": { "zeka": 6 }, "successNext": "case03_child1", "failNext": "case03_witness", "statChanges": { "zeka": 1 } },
+      { "buttonText": "Büyük ayak izini takip et", "requirements": { "guc": 6 }, "successNext": "case03_child2", "failNext": "case03_witness", "statChanges": { "guc": 1 } }
+    ]
+  },
+  {
+    "id": "case03_witness",
+    "text": "Yaşlı bir kadın, yangını kendi eliyle anlatıyor. 'Kamyon önce geldi, sonra alevler. Çocukları içeri taşıdılar.' Bu bir kaza değil — tuzak. Ve kamyonun plakasını ezbere biliyor. Plaka: 34 KCR 07.",
+    "choices": [
+      { "buttonText": "Plakayı sorgulat, sahibini bul", "requirements": { "itibar": 6 }, "successNext": "case03_plate", "failNext": "case03_inside", "statChanges": { "itibar": 2 } },
+      { "buttonText": "Yıkıntıya gir, çocukları ara", "requirements": { "guc": 6 }, "successNext": "case03_inside", "failNext": "case03_deadend2", "statChanges": { "guc": 1 } }
+    ]
+  },
+  {
+    "id": "case03_child1",
+    "text": "Küçük iz bir bacaya gidiyor. İçeride, gizlenmiş, korkudan titreyerek: sekiz yaşında bir kız çocuğu. Seni görünce bağırıyor — ama kollarına aldığında sakinleşiyor. Bir isim fısıldıyor: 'Rauf... Rauf bizi buraya getirdi.'",
+    "choices": [
+      { "buttonText": "Çocuğu güvene al, Rauf'u ara", "requirements": {}, "successNext": "case03_rauf2", "failNext": "case03_rauf2", "statChanges": { "itibar": 2, "psikoloji": 1 } },
+      { "buttonText": "Diğer çocuğu da bul, sonra çık", "requirements": { "guc": 7 }, "successNext": "case03_child2", "failNext": "case03_rauf2", "statChanges": { "guc": 2 } }
+    ]
+  },
+  {
+    "id": "case03_child2",
+    "text": "Büyük iz dışarıya — kanalın kenarına çıkıyor. On yaşında bir erkek çocuğu. Kolu yaralı, gözleri donuk. 'Bizi sattılar' diyor, sessizce. 'Babam borçluymuş. Ve onlar... onlar bu şehrin her yerinde.' Gökyüzüne bakıyor. Yağmur başlıyor.",
+    "choices": [
+      { "buttonText": "Çocuğu hastaneye götür, sonra soruştur", "requirements": {}, "successNext": "case03_rauf2", "failNext": "case03_rauf2", "statChanges": { "itibar": 1, "psikoloji": 2 } },
+      { "buttonText": "Kimin yaptığını hemen öğrenmek için zorla sorguya çek", "requirements": { "psikoloji": 3 }, "successNext": "case03_rauf2", "failNext": "case03_deadend2", "statChanges": { "psikoloji": 1 } }
+    ]
+  },
+  {
+    "id": "case03_plate",
+    "text": "Plaka sahte çıktı — ama kayıt silme tarihi dün gece saat 23:47. Sisteme kim girdiyse aceleyle işlem yapmış. O saatte sisteme erişen tek isim: Emniyet Müdür Yardımcısı Kadir Şahin. Hartmann'ın ağı düşündüğünden geniş.",
+    "choices": [
+      { "buttonText": "Kadir Şahin'i takibe al", "requirements": { "zeka": 7 }, "successNext": "case03_kadir", "failNext": "case03_rauf2", "statChanges": { "zeka": 2, "itibar": 1 } },
+      { "buttonText": "Rauf Acar bağlantısını araştır", "requirements": { "itibar": 6 }, "successNext": "case03_rauf2", "failNext": "case03_deadend2", "statChanges": { "itibar": 2 } }
+    ]
+  },
+  {
+    "id": "case03_kadir",
+    "text": "Kadir Şahin ofisinin kapısını sana kapatıyor. 'Randevusuz görüşme yok.' diye teklemeye başlıyor ama gözleri kaçıyor. Korku var içinde — ama aynı zamanda tehdit. 'Bu şehirde bazı dosyalar kapanır' diyor. 'Seninkini de kapatabiliriz.'",
+    "choices": [
+      { "buttonText": "Tehdide boyun eğme, kaydı ortaya dök", "requirements": { "itibar": 8, "zeka": 7 }, "successNext": "case03_solved", "failNext": "case03_rauf2", "statChanges": { "itibar": 3, "zeka": 2 } },
+      { "buttonText": "Geri çekil, daha güçlü kanıt topla", "requirements": {}, "successNext": "case03_rauf2", "failNext": "case03_rauf2", "statChanges": { "zeka": 1 } }
+    ]
+  },
+  {
+    "id": "case03_rauf2",
+    "text": "Rauf Acar. Yeniden. Bu sefer bir avukatla geliyor. 'Hiçbir şey bilmiyorum' diyor. Ama bakışları bunu söylemiyort. Masanın altına bir kağıt koyuyor — üstünde bir adres. Şehrin dışında, terk edilmiş bir depo. 'Çocuklar orada değil. Ama sana gereken her şey orada' diyor.",
+    "choices": [
+      { "buttonText": "Adrese git, ne olduğunu gör", "requirements": { "guc": 6 }, "successNext": "case03_warehouse", "failNext": "case03_deadend2", "statChanges": { "guc": 2, "zeka": 1 } },
+      { "buttonText": "Önce desteğe çağır, yalnız gitme", "requirements": { "itibar": 7 }, "successNext": "case03_solved", "failNext": "case03_warehouse", "statChanges": { "itibar": 2 } }
+    ]
+  },
+  {
+    "id": "case03_warehouse",
+    "text": "Terk edilmiş depo. İçerisi karanlık. Flaşla ilerliyorsun. Duvarlarda isimler, tarihler, transferler. Bu sadece iki çocukla ilgili değil — yıllarca süren bir çocuk kaçakçılığı ağı. Hartmann sadece bir parça. Ağın başı başka biri. Ve o isim şehrin en bilinen hayırseverinin adı: Selahattin Orhan.",
+    "choices": [
+      { "buttonText": "Belgeleri al, basına git", "requirements": { "itibar": 8 }, "successNext": "case03_solved", "failNext": "case03_deadend2", "statChanges": { "itibar": 3, "zeka": 1 } },
+      { "buttonText": "Savcılığa götür, resmi süreç başlat", "requirements": { "zeka": 8 }, "successNext": "case03_solved", "failNext": "case03_deadend2", "statChanges": { "zeka": 2, "itibar": 2 } }
+    ]
+  },
+  {
+    "id": "case03_deadend2",
+    "text": "Çıkmaz sokak. İzler soğudu. Şehrin her köşesinde düşmanlar var. Bu dava senin için çok büyük değil — ama yeterince büyük. Geri çekilmek zorunda kaldın. Şimdilik.",
+    "choices": [
+      { "buttonText": "Farklı bir açıdan tekrar dene", "requirements": {}, "successNext": "case03_start", "failNext": "case03_start", "statChanges": { "zeka": 1 } },
+      { "buttonText": "Tanıkları yeniden ziyaret et", "requirements": { "psikoloji": 6 }, "successNext": "case03_witness", "failNext": "case03_start", "statChanges": { "psikoloji": 1, "itibar": 1 } }
+    ]
+  },
+  {
+    "id": "case03_solved",
+    "text": "Selahattin Orhan gözaltına alındı. Şehrin gazeteleri bunu ilk sayfaya taşıdı. Çocuklar güvende. Rauf Acar ifade verdi. Kadir Şahin istifa etti. Sen masanın başında oturuyorsun, sabahın ışığıyla. Üç vaka, sayısız tehlike. Ama şehir biraz daha nefes alıyor. Yeni bir dosya geliyor. Hep gelir.",
+    "choices": [
+      { "buttonText": "Döngüye devam et", "requirements": {}, "successNext": "start", "failNext": "start", "statChanges": { "itibar": 3, "psikoloji": 2, "zeka": 2 } },
+      { "buttonText": "Bu şehri terk et, başka bir şehre geç", "requirements": { "psikoloji": 8, "itibar": 8 }, "successNext": "start", "failNext": "start", "statChanges": { "psikoloji": 3, "itibar": 3, "guc": 1 } }
+    ]
+  }
+]

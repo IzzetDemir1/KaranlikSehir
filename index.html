@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dosya No.7 — Dedektif Oyunu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== INTRO EKRANI ===================== -->
+  <div class="intro-screen" id="intro-screen">
+    <div class="intro-content">
+      <div class="intro-badge">DOSYA NO.7</div>
+      <h1 class="intro-title">Karanlık Şehir</h1>
+      <p class="intro-sub">Bir dedektifin ömrü, çözdüğü davalar kadar uzundur.</p>
+      <div class="intro-divider"></div>
+      <p class="intro-desc">
+        Statlarına göre şekillenen kararlar. Ölüm, miras ve döngü.<br/>
+        Bu şehirde hiçbir dava gerçekten kapanmaz.
+      </p>
+      <button class="intro-start-btn" id="intro-start-btn">Dosyayı Aç</button>
+      <p class="intro-hint" id="intro-hint"></p>
+    </div>
+  </div>
+
+  <!-- ===================== OYUN ALANI ===================== -->
+  <div class="game-area hidden" id="game-area">
+
+    <!-- Toast bildirimi -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Üst Bar: Karakter Bilgileri -->
+    <div class="top-bar">
+      <div class="character-info">
+        <span class="char-name" id="char-name">Dedektif Arthur Voss</span>
+        <div class="char-meta">
+          <span class="char-age" id="char-age">Yaş: 25</span>
+          <span class="char-sep">·</span>
+          <span class="char-cases" id="char-cases">Dava: 0</span>
+          <span class="char-sep">·</span>
+          <span class="char-turns" id="char-turns">Tur: 0</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="hearts" id="hearts">
+          <span class="heart" id="heart-1">❤️</span>
+          <span class="heart" id="heart-2">❤️</span>
+          <span class="heart" id="heart-3">❤️</span>
+          <span class="heart" id="heart-4">❤️</span>
+          <span class="heart" id="heart-5">❤️</span>
+        </div>
+        <button class="reset-btn" id="reset-btn" title="Oyunu Sıfırla" aria-label="Oyunu Sıfırla">↺</button>
+      </div>
+    </div>
+
+    <!-- Stat Çubuğu -->
+    <div class="stat-bar">
+      <div class="stat">
+        <span class="stat-icon">🧠</span>
+        <span class="stat-label">Zeka</span>
+        <span class="stat-value" id="stat-zeka">5</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">💪</span>
+        <span class="stat-label">Güç</span>
+        <span class="stat-value" id="stat-guc">5</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-label">İtibar</span>
+        <span class="stat-value" id="stat-itibar">5</span>
+      </div>
+      <div class="stat">
+        <span class="stat-icon">🧘</span>
+        <span class="stat-label">Psikoloji</span>
+        <span class="stat-value" id="stat-psikoloji">5</span>
+      </div>
+    </div>
+
+    <!-- Ana Metin Alanı -->
+    <main class="story-container">
+      <p class="story-text" id="story-text">Yükleniyor...</p>
+    </main>
+
+    <!-- Aksiyon Butonları -->
+    <div class="action-buttons">
+      <button class="choice-btn" id="btn-choice-1">—</button>
+      <button class="choice-btn" id="btn-choice-2">—</button>
+    </div>
+
+  </div><!-- /game-area -->
+
+  <!-- ===================== REENKARNASYOn MODALI ===================== -->
+  <div class="modal-overlay" id="reincarnation-modal" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-skull">☠</div>
+      <p class="modal-title" id="modal-title">Bir Dönem Kapandı</p>
+      <p class="modal-body" id="modal-body"></p>
+      <div class="modal-legacy" id="modal-legacy"></div>
+      <button class="modal-btn" id="modal-continue-btn">Devam Et</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
